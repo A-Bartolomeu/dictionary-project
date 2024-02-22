@@ -1,12 +1,13 @@
 import Dictionary from "./Dictionary";
+import Header from "./ui/Header";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>test</h1>
-      </header>
-      <Dictionary />
+    <div className="overflow-scroll">
+      <Header />
+      <main className="mx-auto max-w-3xl">
+        <Dictionary />
+      </main>
     </div>
   );
 }
