@@ -1,10 +1,17 @@
+import axios from "axios";
 import { useState } from "react";
 
 function Dictionary() {
   let [keyword, setKeyword] = useState("");
 
+  function handleResponse(response) {
+    console.log(response.data);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
+    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
+    axios.get(apiUrl).then(handleResponse);
   }
 
   return (
