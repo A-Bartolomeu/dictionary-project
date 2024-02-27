@@ -1,4 +1,5 @@
 import Meaning from "./Meaning";
+import Phonetic from "./Phonetic";
 
 function Results(props) {
   if (props.results) {
@@ -7,6 +8,15 @@ function Results(props) {
         <h1 className="font-serif text-4xl text-slate-600 lowercase py-5 ">
           {props.results.word}
         </h1>
+
+        {props.results.phonetics.map(function (phonetic, index) {
+          return (
+            <div key={index}>
+              <Phonetic phonetic={phonetic} />
+            </div>
+          );
+        })}
+
         {props.results.meanings.map(function (meaning, index) {
           return (
             <div key={index}>

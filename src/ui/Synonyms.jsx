@@ -1,16 +1,20 @@
 function Synonyms(props) {
-  console.log(props.synonyms);
-  if (props.synonyms) {
+  if (props.synonyms && props.synonyms.length > 0) {
     return (
-      <div className="text-red-500">
-        {props.synonyms.map(function (synonym, index) {
-          return (
-            <span key={index} className="px-1">
-              {synonym} •
-            </span>
-          );
-        })}
-      </div>
+      <>
+        <h2 className="font-semibold">Synonyms:</h2>
+        <div className="text-red-500">
+          {props.synonyms.map(function (synonym, index, array) {
+            const isLast = index === array.length - 1;
+            return (
+              <span key={index} className="px-1">
+                {synonym}
+                {isLast ? "" : " •"}
+              </span>
+            );
+          })}
+        </div>
+      </>
     );
   } else {
     return null;
