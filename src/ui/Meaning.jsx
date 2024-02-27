@@ -1,3 +1,5 @@
+import Synonyms from "./Synonyms";
+
 function Meaning(props) {
   console.log(props.meaning);
   return (
@@ -13,6 +15,8 @@ function Meaning(props) {
             <p className="text-slate-300 italic capitalize">
               Example: {definition.example}
             </p>
+
+            <Synonyms synonyms={definition.synonyms} />
           </div>
         );
       })}
