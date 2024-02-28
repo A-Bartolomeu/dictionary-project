@@ -2,8 +2,8 @@ function Synonyms(props) {
   if (props.synonyms && props.synonyms.length > 0) {
     return (
       <>
-        <h2 className="font-semibold">Synonyms:</h2>
-        <div className="text-red-500">
+        <div className="text-slate-400 leading-9 text-sm">
+          <span className="pr-2">Synonyms:</span>
           {props.synonyms.map(function (synonym, index, array) {
             const isLast = index === array.length - 1;
             return (

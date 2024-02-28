@@ -19,7 +19,6 @@ function Phonetic(props) {
       setIsPlaying(false);
     };
 
-    // Armazenar o valor de audioRef.current em uma variável local
     const currentAudioRef = audioRef.current;
 
     if (currentAudioRef) {
@@ -33,15 +32,24 @@ function Phonetic(props) {
     };
   }, []);
 
-  return (
-    <div className="flex flex-auto gap-x-3 items-center">
-      <span className="text-blue-400">{props.phonetic.text}</span>
-      <button onClick={toggleAudio} className="text-3xl text-blue-400">
-        {isPlaying ? <HiSpeakerWave /> : <HiSpeakerXMark />}
-      </button>
-      <audio ref={audioRef} src={props.phonetic.audio} />
-    </div>
-  );
+  // Verificar se o arquivo de áudio é .mp3
+  const isMP3 = props.phonetic.audio.endsWith(".mp3");
+
+  // Renderizar o componente apenas se houver texto com a fonética e o arquivo for .mp3
+  if (props.phonetic.text && isMP3) {
+    return (
+      <div className="flex flex-auto gap-x-3 items-center mr-4 pb-3 px-4">
+        <span className="text-blue-400">{props.phonetic.text}</span>
+        <button onClick={toggleAudio} className="text-3xl text-blue-400">
+          {isPlaying ? <HiSpeakerWave /> : <HiSpeakerXMark />}
+        </button>
+        <audio ref={audioRef} src={props.phonetic.audio} />
+      </div>
+    );
+  }
+
+  // Se não houver texto ou o arquivo não for .mp3, retornar null para não renderizar nada
+  return null;
 }
 
 export default Phonetic;

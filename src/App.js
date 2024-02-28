@@ -1,5 +1,5 @@
-import Dictionary from "./Dictionary";
-import Header from "./ui/Header";
+import Dictionary from "./components/Dictionary";
+import Header from "./components/Header";
 
 function App() {
   return (
